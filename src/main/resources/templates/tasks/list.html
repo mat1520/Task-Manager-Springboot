@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main}">
+<head>
+    <title>Lista de Tareas</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <h1 class="h3">Lista de Tareas</h1>
+            </div>
+            <div class="col-md-4 text-end">
+                <div class="btn-group" role="group">
+                    <a th:href="@{/tasks}" class="btn btn-outline-primary">Todas</a>
+                    <a th:href="@{/tasks(completed=false)}" class="btn btn-outline-primary">Pendientes</a>
+                    <a th:href="@{/tasks(completed=true)}" class="btn btn-outline-primary">Completadas</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formulario para nueva tarea -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Nueva Tarea</h5>
+                <form th:action="@{/tasks}" th:object="${newTask}" method="post">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Título</label>
+                        <input type="text" class="form-control" id="title" th:field="*{title}" required>
+                        <div class="text-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="description" th:field="*{description}" rows="3"></textarea>
+                        <div class="text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-plus-circle"></i> Crear Tarea
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Lista de tareas -->
+        <div class="row">
+            <div class="col-12">
+                <div th:if="${tasks.empty}" class="text-center py-4">
+                    <i class="bi bi-inbox text-muted" style="font-size: 3rem;"></i>
+                    <p class="mt-3 text-muted">No hay tareas para mostrar</p>
+                </div>
+                
+                <div th:each="task : ${tasks}" class="card mb-3 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h5 class="card-title" th:classappend="${task.completed ? 'task-completed' : ''}"
+                                    th:text="${task.title}">Título de la tarea</h5>
+                                <p class="card-text text-muted" th:text="${task.description}">Descripción de la tarea</p>
+                                <small class="text-muted">
+                                    Creada: <span th:text="${#temporals.format(task.createdAt, 'dd/MM/yyyy HH:mm')}"></span>
+                                    <span th:if="${task.completed}">
+                                        | Completada: <span th:text="${#temporals.format(task.completedAt, 'dd/MM/yyyy HH:mm')}"></span>
+                                    </span>
+                                </small>
+                            </div>
+                            <div class="btn-group">
+                                <form th:action="@{/tasks/{id}/toggle(id=${task.id})}" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-sm" 
+                                            th:classappend="${task.completed ? 'btn-warning' : 'btn-success'}">
+                                        <i class="bi" th:classappend="${task.completed ? 'bi-arrow-counterclockwise' : 'bi-check-lg'}"></i>
+                                    </button>
+                                </form>
+                                <a th:href="@{/tasks/{id}/edit(id=${task.id})}" class="btn btn-sm btn-primary">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <form th:action="@{/tasks/{id}/delete(id=${task.id})}" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-sm btn-danger" 
+                                            onclick="return confirm('¿Estás seguro de eliminar esta tarea?')">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
