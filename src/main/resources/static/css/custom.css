@@ -1,0 +1,594 @@
+/* Importación de fuentes de Google */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Fira+Code&display=swap');
+
+:root {
+    --color-bg-main: #121212;
+    --color-bg-card: #1E1E1E;
+    --color-text-main: #F3F4F6;
+    --color-text-secondary: #9CA3AF;
+    --color-primary: #EF4444;
+    --color-primary-hover: #DC2626;
+    --color-accent: #F87171;
+    --color-border: #27272A;
+    --color-success: #22C55E;
+    --color-warning: #FACC15;
+    --color-error: #B91C1C;
+}
+
+/* Configuración de fuentes */
+body, html {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, rgba(30,30,40,0.98) 60%, rgba(20,20,20,0.95) 100%) !important;
+    color: var(--color-text-main);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: -1px;
+}
+
+code, pre {
+    font-family: 'Fira Code', monospace;
+}
+
+/* Estilos de botones */
+.btn-primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+}
+
+.btn-success {
+    background-color: var(--color-success);
+    border-color: var(--color-success);
+}
+
+/* Alertas y mensajes */
+.alert-success {
+    background-color: var(--color-success);
+    border-color: var(--color-success);
+    color: #fff;
+}
+
+.alert-warning {
+    background-color: var(--color-warning);
+    border-color: var(--color-warning);
+    color: #232323;
+}
+
+.alert-danger {
+    background-color: var(--color-error);
+    border-color: var(--color-error);
+    color: #fff;
+}
+
+/* Navbar personalizado */
+.navbar {
+    background-color: var(--color-primary) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+/* Cards y contenedores */
+.card, .panel, .task-list {
+    background: rgba(30,30,30,0.92) !important;
+    color: var(--color-text-main) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    border-radius: 14px;
+    border: 1px solid var(--color-border);
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+/* Formularios */
+.form-control:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.2rem rgba(239,68,68,0.15);
+    background: #232323;
+    color: var(--color-text-main);
+}
+
+/* Tareas completadas */
+.task-completed {
+    color: var(--color-text-secondary);
+    text-decoration: line-through;
+}
+
+/* Badges y etiquetas */
+.badge-primary {
+    background-color: var(--color-primary);
+}
+
+.badge-success {
+    background-color: var(--color-success);
+}
+
+/* Enlaces */
+a {
+    color: var(--color-primary);
+}
+
+a:hover {
+    color: var(--color-primary-hover);
+}
+
+/* Footer */
+footer {
+    border-top: 3px solid var(--color-primary);
+    background: var(--color-bg-card);
+    color: var(--color-text-secondary);
+}
+
+footer h5 {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+footer .text-muted {
+    color: var(--color-text-secondary) !important;
+}
+
+/* Animaciones y transiciones */
+.btn, .card, .form-control {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Estilos para mensajes flash */
+.flash-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Estilos para la página de login */
+.login-page {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(30,30,40,0.98) 60%, rgba(20,20,20,0.95) 100%) !important;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.login-page .container {
+    width: 100%;
+    max-width: 420px;
+    min-width: 320px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.login-page .fade-in-logo img {
+    width: 140px !important;
+    height: 140px !important;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px #0005;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 600px) {
+    .login-page .fade-in-logo img {
+        width: 90px !important;
+        height: 90px !important;
+        margin-bottom: 1.2rem;
+    }
+    .login-page .container {
+        max-width: 95vw;
+        min-width: 0;
+        padding: 0 0.5rem;
+    }
+    .card {
+        padding: 1rem 0.5rem 0.5rem 0.5rem !important;
+    }
+}
+
+.card {
+    width: 100%;
+    max-width: 420px;
+    min-width: 320px;
+    margin: 0 auto;
+    padding: 2rem 2rem 1.5rem 2rem;
+    box-sizing: border-box;
+}
+
+#particles-js {
+    position: fixed !important;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 0 !important;
+    pointer-events: none;
+    background: transparent;
+}
+
+body > *:not(#particles-js) {
+    position: relative;
+    z-index: 1;
+}
+
+/* El header global mantiene el logo pequeño */
+header img {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 12px;
+}
+
+body:not(.login-body) {
+    overflow-y: auto;
+}
+
+/* Estilos para la lista de tareas */
+.task-list {
+    background: var(--color-bg-card);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.10);
+}
+
+/* Estilos para los iconos */
+.bi {
+    vertical-align: middle;
+}
+
+/* Estilos para el modo oscuro (opcional) */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--color-bg-main);
+        color: var(--color-text-main);
+    }
+    
+    .card {
+        background-color: var(--color-bg-card);
+        color: var(--color-text-main);
+    }
+    
+    .form-control {
+        background-color: var(--color-bg-card);
+        border-color: var(--color-border);
+        color: var(--color-text-main);
+    }
+    
+    .form-control:focus {
+        background-color: var(--color-bg-card);
+        color: var(--color-text-main);
+    }
+}
+
+/* Títulos principales */
+.page-title, h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    border-left: 6px solid var(--color-primary);
+    padding-left: 0.75rem;
+    background: none;
+    border-radius: 0 8px 8px 0;
+}
+
+/* Subtítulos */
+.section-title, h2, h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.5px;
+}
+
+.subtitle, .section-subtitle {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+/* Separadores visuales */
+.section-divider {
+    border-bottom: 2px solid var(--color-border);
+    margin: 1.5rem 0 1rem 0;
+}
+
+/* Cards y formularios mejorados */
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 0.5rem;
+}
+
+/* Botones modernos */
+.btn, .btn-primary, .btn-success, .btn-danger, .btn-warning {
+    border-radius: 0.7rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(239,68,68,0.07);
+    border: none;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.btn-primary:active, .btn-primary:focus {
+    background: var(--color-primary-hover);
+    color: #fff;
+}
+
+.btn-success {
+    background: var(--color-success);
+    color: #fff;
+}
+
+.btn-danger {
+    background: var(--color-error);
+    color: #fff;
+}
+
+.btn-warning {
+    background: var(--color-warning);
+    color: #fff;
+}
+
+/* Badges y etiquetas mejoradas */
+.badge, .badge-primary, .badge-success {
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    padding: 0.4em 0.8em;
+    font-weight: 500;
+    background: var(--color-accent);
+    color: #fff;
+}
+
+/* Inputs y labels */
+.form-label {
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.form-control {
+    border-radius: 0.5rem;
+    font-size: 1.05rem;
+    background: #232323;
+    color: var(--color-text-main);
+    border: 1px solid var(--color-border);
+}
+
+/* Mejorar contraste de fondo de cards en modo claro */
+.card {
+    background: var(--color-bg-card) !important;
+    border-radius: 14px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    color: var(--color-text-main);
+}
+
+/* Mejorar contraste de footer */
+footer {
+    border-top: 3px solid var(--color-primary);
+    background: var(--color-bg-card);
+    color: var(--color-text-secondary);
+}
+
+footer h5 {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+footer .text-muted {
+    color: var(--color-text-secondary) !important;
+}
+
+/* Espaciados generales */
+.mt-4, .my-4 {
+    margin-top: 2rem !important;
+}
+
+.mb-4, .my-4 {
+    margin-bottom: 2rem !important;
+}
+
+/* Mejorar tabs de filtros */
+.nav-tabs .nav-link.active {
+    background: var(--color-primary);
+    color: #fff;
+    border-radius: 0.5rem 0.5rem 0 0;
+    font-weight: 600;
+    border: none;
+}
+
+.nav-tabs .nav-link {
+    color: var(--color-primary);
+    font-weight: 500;
+    border-radius: 0.5rem 0.5rem 0 0;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+}
+
+.input-group-text {
+    background: var(--color-bg-card);
+    color: var(--color-accent);
+    border: 1px solid var(--color-border);
+}
+
+/* Mejorar contraste de textos de ayuda */
+.form-text {
+    color: var(--color-text-secondary) !important;
+    font-size: 0.98rem;
+}
+
+/* Asegurar contraste de títulos y subtítulos */
+.page-title, h1, h2, h3, .section-title {
+    color: var(--color-primary) !important;
+}
+
+/* Asegurar contraste de textos secundarios */
+.form-text, .text-muted, .subtitle, .section-subtitle {
+    color: var(--color-text-secondary) !important;
+}
+
+/* Cards y paneles siguen con fondo oscuro */
+.card, .panel, .task-list {
+    background: var(--color-bg-card) !important;
+    color: var(--color-text-main) !important;
+}
+
+.container, .container-fluid, .main-content, .stack-main, .content-wrapper {
+    background: var(--color-bg-main) !important;
+    color: var(--color-text-main);
+}
+
+/* Animación fade-in para logo y formulario en login/registro */
+.fade-in-logo {
+    animation: fadeInLogo 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+.fade-in-form {
+    animation: fadeInForm 1.6s cubic-bezier(0.4,0,0.2,1);
+}
+@keyframes fadeInLogo {
+    from { opacity: 0; transform: translateY(-40px) scale(0.8); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes fadeInForm {
+    from { opacity: 0; transform: translateY(40px) scale(0.95); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Animación hover en botón de login */
+.btn-primary {
+    transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+.btn-primary:hover {
+    box-shadow: 0 6px 24px rgba(239,68,68,0.18);
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* Login y registro: centrado absoluto y responsive */
+body.login-body, html.login-body {
+    min-height: 100vh;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden !important;
+    margin: 0;
+    padding: 0;
+}
+
+/* El logo grande solo en login/registro */
+.login-page .fade-in-logo img {
+    width: 150px !important;
+    height: 150px !important;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px #0005;
+    margin-bottom: 2rem;
+}
+
+/* El header global mantiene el logo pequeño */
+header img {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 12px;
+}
+
+/* El resto de la app puede hacer scroll normalmente */
+body:not(.login-body) {
+    overflow-y: auto;
+}
+
+.login-block {
+    width: 100%;
+    max-width: 420px;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.login-block .card {
+    width: 100%;
+    max-width: 420px;
+    min-width: 320px;
+    margin: 0 auto;
+    padding: 2rem 2rem 1.5rem 2rem;
+    box-sizing: border-box;
+}
+
+.login-block .fade-in-logo img {
+    width: 120px !important;
+    height: 120px !important;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px #0005;
+    margin-bottom: 0.5rem;
+}
+
+.login-block .page-title {
+    font-size: 2.1rem;
+    margin-bottom: 0.2rem;
+}
+
+.login-block a.d-inline-flex img.rounded-circle {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+@media (max-width: 600px) {
+    .login-block {
+        max-width: 98vw;
+        min-width: 0;
+        padding: 0 0.5rem;
+        gap: 0.7rem;
+    }
+    .login-block .card {
+        padding: 1rem 0.5rem 0.5rem 0.5rem !important;
+        min-width: 0;
+        max-width: 100vw;
+    }
+    .login-block .fade-in-logo img {
+        width: 70px !important;
+        height: 70px !important;
+        margin-bottom: 0.2rem;
+    }
+    .login-block .page-title {
+        font-size: 1.3rem;
+    }
+    .login-block a.d-inline-flex img.rounded-circle {
+        width: 32px !important;
+        height: 32px !important;
+    }
+} 
