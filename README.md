@@ -1,94 +1,130 @@
 # 🚀 Task Manager - Spring Boot Application
 
+<p align="center">
+  <img src="src/main/resources/static/images/LOGOTASK.png" alt="Task Manager Logo" width="180"/>
+</p>
+
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.3-green.svg)](https://spring.io/projects/spring-boot)
 [![Java](https://img.shields.io/badge/Java-17-orange.svg)](https://www.oracle.com/java/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue.svg)](https://www.postgresql.org/)
 [![Thymeleaf](https://img.shields.io/badge/Thymeleaf-3.1-green.svg)](https://www.thymeleaf.org/)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.2-purple.svg)](https://getbootstrap.com/)
 
+---
+
 ## 📋 Descripción
-Task Manager es una aplicación web moderna desarrollada con Spring Boot que permite a los usuarios gestionar sus tareas diarias de manera eficiente. La aplicación cuenta con un sistema de autenticación seguro y una interfaz de usuario intuitiva.
+Task Manager es una aplicación web moderna desarrollada con **Spring Boot** que permite a los usuarios gestionar sus tareas diarias de manera eficiente. Cuenta con autenticación segura, interfaz intuitiva y despliegue profesional en la nube.
+
+---
+
+## 🖼️ Imágenes de la App
+
+### Login
+<img src="src/main/resources/static/images/LOGIN PAGE.png" alt="Login Page" width="600"/>
+
+### Registro
+<img src="src/main/resources/static/images/REGISTRER PAGE.png" alt="Register Page" width="600"/>
+
+### Lista de Tareas
+<img src="src/main/resources/static/images/TASK PAGE.png" alt="Task Page" width="600"/>
+
+---
 
 ## 🛠️ Tecnologías Utilizadas
-- **Backend**: Spring Boot 3.2.3
-- **Frontend**: Thymeleaf + Bootstrap 5.3.2
-- **Base de Datos**: PostgreSQL
-- **Seguridad**: Spring Security
-- **Autenticación**: BCrypt Password Encoder
-- **Gestión de Dependencias**: Maven
+- **Backend:** Spring Boot 3.2.3
+- **Frontend:** Thymeleaf + Bootstrap 5.3.2
+- **Base de Datos:** PostgreSQL
+- **Seguridad:** Spring Security
+- **Autenticación:** BCrypt Password Encoder
+- **Gestión de Dependencias:** Maven
+- **Despliegue:** Docker + Render.com
 
-## ✨ Características
-- ✅ Sistema de autenticación y registro de usuarios
-- ✅ Gestión CRUD de tareas
+---
+
+## ✨ Funcionalidades
+- ✅ Registro y autenticación de usuarios
+- ✅ Gestión CRUD de tareas personales
 - ✅ Interfaz responsiva y moderna
-- ✅ Validación de formularios
-- ✅ Mensajes flash para feedback al usuario
-- ✅ Protección CSRF
-- ✅ Sesiones seguras
+- ✅ Validación de formularios y feedback visual
+- ✅ Protección CSRF y sesiones seguras
+- ✅ Filtros de tareas (todas, pendientes, completadas)
+- ✅ Logout seguro
 
-## 🚀 Estado del Proyecto
-### Desarrollo Local ✅
-- [x] Configuración inicial del proyecto
-- [x] Implementación de seguridad
-- [x] Sistema de autenticación
-- [x] Gestión de tareas
-- [x] Interfaz de usuario
-- [x] Validaciones
-- [x] Mensajes de feedback
+---
 
-### Próximos Pasos 🚧
-- [ ] Despliegue en producción
-- [ ] Implementación de pruebas unitarias
-- [ ] Integración continua (CI/CD)
-- [ ] Monitoreo y logging
-- [ ] Optimización de rendimiento
-- [ ] Documentación API
+## 🔄 Diagrama de Flujo de Funcionalidad
 
-## 🛠️ Requisitos
-- Java 17 o superior
-- PostgreSQL 15 o superior
-- Maven 3.6 o superior
-
-## ⚙️ Configuración
-1. Clona el repositorio:
-```bash
-git clone https://github.com/mat1520/Task-Manager-Springboot.git
+```mermaid
+graph TD;
+    A[Usuario] -->|Visita| B[Login/Register]
+    B -->|Login exitoso| C[Dashboard de Tareas]
+    C -->|Crea tarea| D[Nueva tarea en BD]
+    C -->|Marca como completada| E[Actualiza tarea]
+    C -->|Elimina tarea| F[Borra tarea de BD]
+    C -->|Logout| B
+    B -->|Registro| G[Usuario nuevo en BD]
 ```
 
-2. Configura la base de datos PostgreSQL:
+---
+
+## ⚙️ Instalación y Despliegue
+
+### 1. Clona el repositorio
+```bash
+git clone https://github.com/mat1520/Task-Manager-Springboot.git
+cd Task-Manager-Springboot
+```
+
+### 2. Configura la base de datos PostgreSQL
 ```properties
 spring.datasource.url=jdbc:postgresql://localhost:5432/tododb
 spring.datasource.username=postgres
 spring.datasource.password=tu_contraseña
 ```
 
-3. Ejecuta la aplicación:
+### 3. Ejecuta localmente
 ```bash
 ./mvnw spring-boot:run
 ```
 
-## 🔒 Seguridad
-- Autenticación basada en formularios
-- Contraseñas encriptadas con BCrypt
-- Protección contra ataques CSRF
-- Sesiones seguras con cookies HttpOnly
-- Validación de entrada de datos
+### 4. Despliegue en Render.com usando Docker
+- Se creó un `Dockerfile` para despliegue universal.
+- Render detecta el Dockerfile y construye la app automáticamente.
+- Variables de entorno necesarias:
+  - `DATABASE_URL`
+  - `DATABASE_USERNAME`
+  - `DATABASE_PASSWORD`
+  - `SPRING_PROFILES_ACTIVE=prod`
 
-## 📱 Interfaz de Usuario
-- Diseño responsivo con Bootstrap 5
-- Iconos de Bootstrap Icons
-- Mensajes flash para feedback
-- Formularios validados
-- Tema claro y moderno
-
-## 🤝 Contribución
-Las contribuciones son bienvenidas. Por favor, lee las guías de contribución antes de enviar un pull request.
-
-## 📄 Licencia
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
-
-## 👥 Autor
-- **Mat1520** - [GitHub](https://github.com/mat1520)
+#### Ejemplo de Dockerfile:
+```dockerfile
+FROM eclipse-temurin:17-jdk
+WORKDIR /app
+COPY . .
+RUN chmod +x mvnw
+RUN ./mvnw clean package -DskipTests
+EXPOSE 8080
+CMD ["java", "-jar", "target/todo-app-0.0.1-SNAPSHOT.jar"]
+```
 
 ---
-⭐️ Si te gusta el proyecto, no olvides darle una estrella en GitHub! 
+
+## 🧠 Lo que aprendimos de Spring Boot y el despliegue
+- Cómo estructurar un proyecto profesional con Spring Boot y Maven.
+- Seguridad con Spring Security y BCrypt.
+- Uso de Thymeleaf para vistas modernas y reactivas.
+- Validación de formularios y feedback visual.
+- Configuración de variables de entorno para producción.
+- Despliegue profesional usando Docker y Render.com.
+- Solución de problemas comunes de despliegue (permisos, entorno, base de datos, etc).
+
+---
+
+## 👨‍💻 Autor y Créditos
+- Creado por [@mat1520](https://github.com/mat1520)
+- Logo y diseño UI personalizados
+
+---
+
+## ⭐️ ¿Te gusta el proyecto?
+¡Dale una estrella en GitHub y compártelo!
