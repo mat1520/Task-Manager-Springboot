@@ -591,4 +591,143 @@ body:not(.login-body) {
         width: 32px !important;
         height: 32px !important;
     }
+}
+
+/* HEADER LOGO MÁS GRANDE Y CENTRADO */
+header img {
+    width: 64px !important;
+    height: 64px !important;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px #0003;
+    background: #fff;
+    object-fit: contain;
+}
+
+/* FOOTER LOGO MÁS GRANDE Y VISIBLE */
+footer img {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #0002;
+    background: #fff;
+    object-fit: contain;
+}
+
+footer {
+    border-top: 3px solid var(--color-primary);
+    background: var(--color-bg-card);
+    color: var(--color-text-secondary);
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+    font-size: 1.08rem;
+    box-shadow: 0 -2px 12px #0001;
+}
+
+footer .container {
+    min-height: 64px;
+}
+
+footer .text-muted, footer a {
+    color: var(--color-accent) !important;
+    font-weight: 600;
+    font-size: 1.08rem;
+}
+
+/* MEJORAS EN LA PÁGINA DE TAREAS */
+.page-title, h1 {
+    font-size: 2.5rem !important;
+    margin-bottom: 1.5rem !important;
+    border-left: 8px solid var(--color-primary);
+    padding-left: 1rem;
+    background: none;
+    border-radius: 0 12px 12px 0;
+    color: var(--color-primary) !important;
+    letter-spacing: -1.5px;
+}
+
+.card-title {
+    font-size: 1.5rem !important;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 1.2rem;
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 0.5rem;
+}
+
+.card, .panel, .task-list {
+    background: rgba(30,30,30,0.97) !important;
+    color: var(--color-text-main) !important;
+    box-shadow: 0 6px 24px rgba(239,68,68,0.10);
+    border-radius: 18px;
+    border: 1.5px solid var(--color-border);
+    padding: 2.2rem 2.2rem 1.5rem 2.2rem;
+}
+
+.card input, .card textarea {
+    background: #18181b !important;
+    color: var(--color-text-main) !important;
+    border: 1.5px solid var(--color-border);
+    border-radius: 0.7rem;
+    font-size: 1.08rem;
+}
+
+.card input:focus, .card textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.2rem rgba(239,68,68,0.12);
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, var(--color-primary) 60%, var(--color-accent) 100%);
+    color: #fff;
+    font-size: 1.12rem;
+    font-weight: 700;
+    border-radius: 0.8rem;
+    padding: 0.7rem 1.5rem;
+    box-shadow: 0 4px 16px rgba(239,68,68,0.10);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(90deg, var(--color-primary-hover) 60%, var(--color-accent) 100%);
+    color: #fff;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 8px 32px rgba(239,68,68,0.18);
+}
+
+/* Tabs de filtros de tareas */
+.nav-tabs .nav-link.active {
+    background: var(--color-primary);
+    color: #fff;
+    border-radius: 0.7rem 0.7rem 0 0;
+    font-weight: 700;
+    border: none;
+    font-size: 1.08rem;
+}
+
+.nav-tabs .nav-link {
+    color: var(--color-primary);
+    font-weight: 600;
+    border-radius: 0.7rem 0.7rem 0 0;
+    background: var(--color-bg-card);
+    border: 1.5px solid var(--color-border);
+    font-size: 1.08rem;
+}
+
+/* Responsive para header/footer/logo */
+@media (max-width: 600px) {
+    header img, footer img {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    .page-title, h1 {
+        font-size: 1.5rem !important;
+        padding-left: 0.5rem;
+    }
+    .card, .panel, .task-list {
+        padding: 1rem 0.5rem 0.5rem 0.5rem !important;
+    }
+    footer .container {
+        flex-direction: column !important;
+        gap: 0.7rem;
+        text-align: center;
+    }
 } 
