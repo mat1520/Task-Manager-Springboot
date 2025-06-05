@@ -599,7 +599,7 @@ header img {
     height: 64px !important;
     border-radius: 16px;
     box-shadow: 0 4px 16px #0003;
-    background: #fff;
+    background: transparent !important;
     object-fit: contain;
 }
 
@@ -609,7 +609,7 @@ footer img {
     height: 48px !important;
     border-radius: 12px;
     box-shadow: 0 2px 8px #0002;
-    background: #fff;
+    background: transparent !important;
     object-fit: contain;
 }
 
