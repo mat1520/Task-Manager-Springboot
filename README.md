@@ -24,7 +24,7 @@ Task Manager es una aplicación web moderna desarrollada con **Spring Boot** que
 ## 🖼️ Imágenes de la App
 
 ### Login
-<img src="images/LOGIN PAGE .png" alt="Login Page" width="600"/>
+  <img src="images/LOGIN PAGE .png" alt="Login Page" width="600"/>
 
 ### Registro
 <img src="images/REGISTRER PAGE.png" alt="Register Page" width="600"/>
