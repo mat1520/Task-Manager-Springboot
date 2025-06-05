@@ -1,7 +1,11 @@
 # 🚀 Task Manager - Spring Boot Application
 
+> **🟢 Despliegue en Producción:**
+> 
+> Accede y prueba la app en vivo 👉 [Task Manager Spring Boot en Render](https://task-manager-springboot.onrender.com/register)
+
 <p align="center">
-  <img src="src/main/resources/static/images/LOGOTASK.png" alt="Task Manager Logo" width="180"/>
+  <img src="images/LOGOTASK.png" alt="Task Manager Logo" width="180"/>
 </p>
 
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.3-green.svg)](https://spring.io/projects/spring-boot)
@@ -20,13 +24,13 @@ Task Manager es una aplicación web moderna desarrollada con **Spring Boot** que
 ## 🖼️ Imágenes de la App
 
 ### Login
-<img src="src/main/resources/static/images/LOGIN PAGE.png" alt="Login Page" width="600"/>
+<img src="images/LOGIN PAGE .png" alt="Login Page" width="600"/>
 
 ### Registro
-<img src="src/main/resources/static/images/REGISTRER PAGE.png" alt="Register Page" width="600"/>
+<img src="images/REGISTRER PAGE.png" alt="Register Page" width="600"/>
 
 ### Lista de Tareas
-<img src="src/main/resources/static/images/TASK PAGE.png" alt="Task Page" width="600"/>
+<img src="images/TASK PAGE.png" alt="Task Page" width="600"/>
 
 ---
 
